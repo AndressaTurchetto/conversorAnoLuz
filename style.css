@@ -33,6 +33,15 @@ input {
     padding: 8px;
     margin-bottom: 15px;
     box-sizing: border-box;
+    border: 2px solid #333;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+}
+
+input:focus {
+    border-color: #4b6584;
+    background-color: #c7d5ea; 
+    outline: none; 
 }
 
 button {
