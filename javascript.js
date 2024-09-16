@@ -1,18 +1,26 @@
-// Função para converter quilômetros para anos-luz
 function converterQuilometrosParaAnosLuz(quilometros, quilometrosPorAnoLuz) {
     return quilometros / quilometrosPorAnoLuz;
 }
 
-// Solicita ao usuário a distância em quilômetros e a velocidade da viagem
-var distanciaEmQuilometros = parseFloat(prompt("Digite a distância em quilômetros:"));
-var velocidadeEmQuilometrosPorAnoLuz = parseFloat(prompt("Digite a velocidade da viagem em quilômetros por ano-luz:"));
+function calcularTempo(event) {
+    event.preventDefault();
 
-// Converte quilômetros para anos-luz usando a função
-var distanciaEmAnosLuz = converterQuilometrosParaAnosLuz(distanciaEmQuilometros, velocidadeEmQuilometrosPorAnoLuz);
+    var distanciaEmQuilometros = parseFloat(document.getElementById('distancia').value);
+    var velocidadeEmQuilometrosPorAnoLuz = parseFloat(document.getElementById('velocidade').value);
 
-// Calcula o tempo necessário para viajar em anos
-var tempoNecessario = distanciaEmAnosLuz / velocidadeEmQuilometrosPorAnoLuz;
+    if (isNaN(distanciaEmQuilometros) || isNaN(velocidadeEmQuilometrosPorAnoLuz) || velocidadeEmQuilometrosPorAnoLuz === 0) {
+        document.getElementById('resultado').innerHTML = "Por favor, insira valores válidos.";
+        return;
+    }
 
-// Exibe o resultado
-alert("A distância de " + distanciaEmQuilometros + " quilômetros é equivalente a aproximadamente " + distanciaEmAnosLuz.toFixed(3) + " anos-luz.\n" +
-      "Com uma velocidade de " + velocidadeEmQuilometrosPorAnoLuz + " quilômetros por ano-luz, levaria cerca de " + tempoNecessario.toFixed(3) + " anos para viajar.");
+    var distanciaEmAnosLuz = converterQuilometrosParaAnosLuz(distanciaEmQuilometros, velocidadeEmQuilometrosPorAnoLuz);
+    var tempoNecessario = distanciaEmAnosLuz / velocidadeEmQuilometrosPorAnoLuz;
+
+    document.getElementById('resultado').innerHTML =
+        "A distância de " + distanciaEmQuilometros + " quilômetros é equivalente a aproximadamente " +
+        distanciaEmAnosLuz.toFixed(3) + " anos-luz.<br>" +
+        "Com uma velocidade de " + velocidadeEmQuilometrosPorAnoLuz +
+        " quilômetros por ano-luz, levaria cerca de " + tempoNecessario.toFixed(3) + " anos para viajar.";
+}
+
+document.getElementById('conversor-form').addEventListener('submit', calcularTempo);
