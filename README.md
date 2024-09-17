@@ -11,10 +11,10 @@ Este projeto é uma aplicação JavaScript que permite converter distâncias em 
 
 Além disso, o projeto pode converter distâncias de outras unidades para anos-luz.
 
-![Tela Inicial](assets/Captura%20de%20tela%202024-09-17%20155628.png)
+![Tela Inicial](assets/tela.png)
 *Tela inicial do conversor*
 
-![Tela de Conversão](assets/Captura%20de%20tela%202024-09-17%20155808.png)
+![Tela de Conversão](assets/tela.png)
 *Tela de conversão de unidades*
 
 ## Instalação
